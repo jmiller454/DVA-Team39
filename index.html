@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Breaking Limits – Olympic Performance &amp; Socio‑Economic Factors</title>
+<style>
+  :root{
+    --primary:#004c97;
+    --secondary:#f5f7fa;
+    --shade:#e0e6ef;
+    --dark:#222;
+    --light:#fff;
+    --max-width:950px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Roboto,sans-serif;background:var(--secondary);color:var(--dark);line-height:1.6}
+  header{background:var(--primary);color:var(--light);padding:4rem 1rem 3rem;text-align:center}
+  header h1{font-size:2.6rem;margin-bottom:.5rem}
+  nav{background:var(--light);position:sticky;top:0;z-index:20;border-bottom:1px solid var(--shade)}
+  nav ul{display:flex;flex-wrap:wrap;justify-content:center;max-width:var(--max-width);margin:0 auto;list-style:none}
+  nav li{margin:.5rem 1rem}
+  nav a{text-decoration:none;color:var(--primary);font-weight:600;font-size:.95rem}
+  main{max-width:var(--max-width);margin:0 auto;padding:2rem 1rem}
+  section{margin-bottom:4rem}
+  section h2{color:var(--primary);font-size:1.9rem;margin-bottom:.75rem}
+  p,li{margin-bottom:1rem}
+  .figure{background:var(--light);border:1px solid var(--shade);border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.06);margin:2rem 0;overflow:hidden}
+  .figure iframe{width:100%;height:580px;max-height:70vh;border:0}
+  .fig-caption{padding:1rem;background:var(--light);font-size:.95rem}
+  footer{text-align:center;padding:2rem 1rem;font-size:.85rem;color:#666}
+  @media(max-width:600px){
+    header h1{font-size:2.2rem}
+    .figure iframe{height:420px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Breaking Limits</h1>
+  <p>Socio‑Economic Drivers of Olympic Performance<br>MS Analytics • Team 39</p>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="#intro">Intro</a></li>
+    <li><a href="#problem">Objectives</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#lit">Literature</a></li>
+    <li><a href="#global">Global Trends</a></li>
+    <li><a href="#sport">Specialization</a></li>
+    <li><a href="#traj">Trajectories</a></li>
+    <li><a href="#gdp">GDP</a></li>
+    <li><a href="#gender">Gender</a></li>
+    <li><a href="#top5">Top 5 Nations</a></li>
+    <li><a href="#models">Predictive Models</a></li>
+    <li><a href="#parallel">Socio‑Economic Drivers</a></li>
+    <li><a href="#limit">Limitations</a></li>
+    <li><a href="#conc">Conclusion</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section id="intro">
+    <h2>Introduction</h2>
+    <p>Since 1896 a handful of nations—the United States, Russia/USSR, China, and Germany—have dominated medal tables. We investigate how macro‑level forces (GDP, trade openness, gender mobility, demographics) influence that hegemony.</p>
+  </section>
+
+  <section id="problem">
+    <h2>Research Objectives</h2>
+    <ol>
+      <li><strong>Quantify</strong> relationships between socio‑economic indicators and medal counts across 28 Summer &amp; Winter Games.</li>
+      <li><strong>Visualise</strong> the impact of geopolitical shocks, host advantages, and resource allocation on performance.</li>
+      <li><strong>Predict</strong> the probability of individual athletes winning medals using open data.</li>
+    </ol>
+  </section>
+
+  <section id="method">
+    <h2>Data &amp; Methods</h2>
+    <p><strong>Data sources.</strong> 270&nbsp;k athlete–event rows from Kaggle’s Olympic history (1896‑2016) were merged with 10 World&nbsp;Bank indicators spanning 1960‑2020.</p>
+    <p><strong>Feature sets.</strong></p>
+    <ul>
+      <li><em>Athletic</em> – age, sex, height, weight (≈ 151 k rows)</li>
+      <li><em>Athletic + Economic</em> – athletic features plus GDP, population, Gini, trade openness, host flag, female labour‑force participation, education spend, etc. (≈ 89 k rows)</li>
+    </ul>
+    <p><strong>Pre‑processing.</strong> Median imputation, z‑score standardisation, chronological split: training ≤ 2010; validation 2010‑2012; test 2014‑2016.</p>
+    <p><strong>Modelling.</strong> Binary medal prediction with logistic regression, linear SVC, and a 500‑tree class‑balanced random forest.</p>
+  </section>
+
+  <section id="lit">
+    <h2>Related Literature</h2>
+    <ul>
+      <li><strong>GDP &amp; population.</strong> Bernard &amp; Busse (2000) link GDP‑pc to medals; Trivedi &amp; Zimmer (2014) highlight population size.</li>
+      <li><strong>Institutional factors.</strong> Kuper &amp; Sterken (2011) associate socialist traditions and host advantages with success.</li>
+      <li><strong>Methodological shifts.</strong> Shasha et al. (2022) apply Tobit and quantile models to a single Games; our study spans 28 Games and leverages modern ML.</li>
+      <li><strong>Gap addressed.</strong> Trade openness, inequality, and gender mobility are under‑studied; our panel shows their importance.</li>
+    </ul>
+  </section>
+
+  <!-- GLOBAL -->
+  <section id="global">
+    <h2>Global Power Shifts</h2>
+    <p>An animated choropleth shows medal counts by country and cycle. Notice Cold‑War boycotts (1980, 1984) and China’s ascent post‑1984.</p>
+    <figure class="figure">
+      <iframe src="visuals/choropleth.html" title="Animated Medal Choropleth"></iframe>
+      <figcaption class="fig-caption">Host years amplify performance: Beijing 2008 propels China; London 2012 lifts Great Britain.</figcaption>
+    </figure>
+  </section>
+
+  <!-- SPORT -->
+  <section id="sport">
+    <h2>Country–Sport Specialization</h2>
+    <p>The heat‑map reveals comparative advantages: Kenya &amp; Ethiopia in distance running, Norway in Nordic events, Japan in judo after 1964.</p>
+    <figure class="figure">
+      <iframe src="visuals/sport_medal_heatmap.html" title="Country Sport Heatmap"></iframe>
+      <figcaption class="fig-caption">Specialisation reflects targeted funding such as UK cycling’s “Lottery effect” post‑2000.</figcaption>
+    </figure>
+  </section>
+
+  <!-- TRAJECTORIES -->
+  <section id="traj">
+    <h2>Long‑Term Medal Trajectories</h2>
+    <p>The multi‑line chart highlights China’s rise after 1984 and the narrowing gap between the U.S. and its peers from 2000 onward.</p>
+    <figure class="figure">
+      <iframe src="visuals/line_medal_trends.html" title="Medal Trends"></iframe>
+      <figcaption class="fig-caption">Lines are smoothed seven‑year averages to mute war‑time cancellations and boycotts.</figcaption>
+    </figure>
+  </section>
+
+  <!-- GDP -->
+  <section id="gdp">
+    <h2>Does Money Buy Medals?</h2>
+    <p>Wealth correlates with success yet shows diminishing returns; small high‑income nations outperform GDP expectations.</p>
+    <figure class="figure">
+      <iframe src="visuals/scatter_gdp_vs_medals_per_capita.html" title="GDP vs Medals per Capita"></iframe>
+      <figcaption class="fig-caption">Log‑log OLS fit: β ≈ 0.32 – a ten‑fold GDP‑pc jump predicts ~2× medals per capita.</figcaption>
+    </figure>
+  </section>
+
+  <!-- GENDER -->
+  <section id="gender">
+    <h2>Gender Participation Over Time</h2>
+    <p>Female athlete share climbs steadily, mirroring global gender reforms and increased women’s events.</p>
+    <figure class="figure">
+      <iframe src="visuals/gender_participation.html" title="Gender Participation"></iframe>
+      <figcaption class="fig-caption">Women exceeded 45 % of competitors for the first time in Rio 2016.</figcaption>
+    </figure>
+  </section>
+
+  <!-- TOP 5 -->
+  <section id="top5">
+    <h2>Medal Share of Top 5 Nations</h2>
+    <p>The “Big Five” share shrank from &gt;60 % pre‑1970s to ~45 % today as more nations reached the podium.</p>
+    <figure class="figure">
+      <iframe src="visuals/top5_medals_over_time.html" title="Top 5 Nations Medal Share"></iframe>
+      <figcaption class="fig-caption">Globalisation and continental qualification quotas diversify medal distribution.</figcaption>
+    </figure>
+  </section>
+
+  <!-- MODELS -->
+  <section id="models">
+    <h2>Predictive Modelling Results</h2>
+    <p>Adding economic variables lifts F‑score from 0.26 to 0.33 (logistic regression). <strong>Trade openness</strong>, host flag and female labour participation emerge as key predictors; population ranks unexpectedly low.</p>
+    <figure class="figure">
+      <iframe src="visuals/model_comparison.html" title="Model Comparison"></iframe>
+      <figcaption class="fig-caption">Confusion‑matrix shading shows economic‑augmented models sacrifice some precision for higher recall.</figcaption>
+    </figure>
+  </section>
+
+  <!-- PARALLEL -->
+  <section id="parallel">
+    <h2>Socio‑Economic Driver Space</h2>
+    <p>Parallel‑coordinates plotting shows medallists skew toward higher trade openness and lower inequality.</p>
+    <figure class="figure">
+      <iframe src="visuals/parallel_medal_result.html" title="Parallel Coordinates"></iframe>
+      <figcaption class="fig-caption">Brushing confirms host‑year athletes enjoy a probability bump.</figcaption>
+    </figure>
+  </section>
+
+  <!-- LIMITATIONS -->
+  <section id="limit">
+    <h2>Limitations</h2>
+    <ul>
+      <li>Strong class imbalance (&lt;10 % positive cases) challenges recall.</li>
+      <li>Pre‑1990 data gaps bias against developing nations.</li>
+      <li>Unobserved cultural and policy variables remain un‑modelled.</li>
+    </ul>
+  </section>
+
+  <!-- CONCLUSION -->
+  <section id="conc">
+    <h2>Conclusion</h2>
+    <p>Economic capacity matters, but <em>how</em> nations deploy resources—through openness, inclusion and specialization—ultimately determines podium success.</p>
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Team 39 • Georgia Institute of Technology – MS Analytics
+</footer>
+
+</body>
+</html>
