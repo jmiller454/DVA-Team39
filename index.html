@@ -79,23 +79,23 @@
 
   <section id="method">
     <h2>Data &amp; Methods</h2>
-    <p><strong>Data sources.</strong> 270&nbsp;k athlete–event rows from Kaggle’s Olympic history (1896‑2016) were merged with 10 World&nbsp;Bank indicators spanning 1960‑2020.</p>
-    <p><strong>Feature sets.</strong></p>
+    <p><strong>Data sources:</strong> 270&nbsp;k athlete–event rows from Kaggle’s Olympic history (1896‑2016) were merged with 10 World&nbsp;Bank indicators spanning 1960‑2020.</p>
+    <p><strong>Feature sets:</strong></p>
     <ul>
       <li><em>Athletic</em> – age, sex, height, weight (≈ 151 k rows)</li>
       <li><em>Athletic + Economic</em> – athletic features plus GDP, population, Gini, trade openness, host flag, female labour‑force participation, education spend, etc. (≈ 89 k rows)</li>
     </ul>
-    <p><strong>Pre‑processing.</strong> Median imputation, z‑score standardisation, chronological split: training ≤ 2010; validation 2010‑2012; test 2014‑2016.</p>
-    <p><strong>Modelling.</strong> Binary medal prediction with logistic regression, linear SVC, and a 500‑tree class‑balanced random forest.</p>
+    <p><strong>Pre‑processing:</strong> Median imputation, z‑score standardisation, chronological split: training ≤ 2010; validation 2010‑2012; test 2014‑2016.</p>
+    <p><strong>Modelling:</strong> Binary medal prediction with logistic regression, linear SVC, and a 500‑tree class‑balanced random forest.</p>
   </section>
 
   <section id="lit">
     <h2>Related Literature</h2>
     <ul>
-      <li><strong>GDP &amp; population.</strong> Bernard &amp; Busse (2000) link GDP‑pc to medals; Trivedi &amp; Zimmer (2014) highlight population size.</li>
-      <li><strong>Institutional factors.</strong> Kuper &amp; Sterken (2011) associate socialist traditions and host advantages with success.</li>
-      <li><strong>Methodological shifts.</strong> Shasha et al. (2022) apply Tobit and quantile models to a single Games; our study spans 28 Games and leverages modern ML.</li>
-      <li><strong>Gap addressed.</strong> Trade openness, inequality, and gender mobility are under‑studied; our panel shows their importance.</li>
+      <li><strong>GDP &amp; population:</strong> Bernard &amp; Busse (2000) link GDP‑pc to medals; Trivedi &amp; Zimmer (2014) highlight population size.</li>
+      <li><strong>Institutional factors:</strong> Kuper &amp; Sterken (2011) associate socialist traditions and host advantages with success.</li>
+      <li><strong>Methodological shifts:</strong> Shasha et al. (2022) apply Tobit and quantile models to a single Games; our study spans 28 Games and leverages modern ML.</li>
+      <li><strong>Gap addressed:</strong> Trade openness, inequality, and gender mobility are under‑studied; our panel shows their importance.</li>
     </ul>
   </section>
 
